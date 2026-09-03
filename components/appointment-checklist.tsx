@@ -10,7 +10,7 @@ export function AppointmentChecklist() {
   const [checked, setChecked] = useState<Record<number, boolean>>({})
 
   return (
-    <div className="rounded-xl border border-border bg-card p-4 sm:p-6">
+    <>
       <div className="no-print flex items-center justify-end gap-2 pb-3">
         <Button variant="outline" size="sm" onClick={() => setChecked({})}>
           <RotateCcwIcon data-icon="inline-start" />
@@ -46,6 +46,6 @@ export function AppointmentChecklist() {
         Nothing you tick here is saved or sent anywhere &mdash; it only helps
         you prepare for your child&apos;s next appointment.
       </p>
-    </div>
+    </>
   )
 }

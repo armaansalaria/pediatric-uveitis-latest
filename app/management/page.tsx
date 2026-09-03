@@ -104,11 +104,6 @@ export default function ManagementPage() {
         </section>
 
         <section id="checklist" className="space-y-3">
-          <SubHeading>Questions to ask at the next appointment</SubHeading>
-          <p className="text-pretty leading-relaxed text-foreground/90">
-            Tick off questions as you think of them, or print this list to
-            take with you.
-          </p>
           <AppointmentChecklist />
         </section>
 

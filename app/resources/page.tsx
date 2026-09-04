@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
 import { ExternalLinkIcon } from 'lucide-react'
 import { PageHeader, SubHeading } from '@/components/section-heading'
 import { resourceCategories } from '@/lib/resources'
@@ -24,13 +23,16 @@ export default function ResourcesPage() {
       />
 
       <div className="mx-auto max-w-4xl space-y-10 px-4 py-10 sm:px-6">
-        {resourceCategories.map((cat) => (
-          <section key={cat.id} id={cat.id} className="scroll-mt-6 space-y-3">
-            <div>
-              <SubHeading>{cat.title}</SubHeading>
-              <p className="mt-1 text-sm text-muted-foreground">{cat.description}</p>
-            </div>
-            <div className="grid gap-3 sm:grid-cols-2">
+        {resourceCategories.map((cat, index) => (
+          <details key={cat.id} id={cat.id} open={index === 0} className="group scroll-mt-6 border-b border-border pb-8">
+            <summary className="flex cursor-pointer list-none items-start justify-between gap-4 rounded-md outline-none [&::-webkit-details-marker]:hidden focus-visible:ring-2 focus-visible:ring-ring">
+              <span>
+                <span className="block text-xl font-bold text-primary sm:text-2xl">{cat.title}</span>
+                <span className="mt-1 block text-sm text-muted-foreground">{cat.description}</span>
+              </span>
+              <span aria-hidden="true" className="mt-1 flex size-7 shrink-0 items-center justify-center rounded-md border border-border text-lg leading-none text-secondary transition-transform group-open:rotate-45">+</span>
+            </summary>
+            <div className="mt-4 grid gap-3 sm:grid-cols-2">
               {cat.referenceIds.map((id) => {
                 const ref = getReference(id)
                 return (
@@ -54,45 +56,50 @@ export default function ResourcesPage() {
                 )
               })}
             </div>
-          </section>
+          </details>
         ))}
 
         <section id="references" className="space-y-3 pt-4">
-          <SubHeading>References</SubHeading>
-          <p className="text-sm text-muted-foreground">
-            Numbered citations throughout this website correspond to the
-            list below.
-          </p>
-          <ol className="flex flex-col gap-2.5">
+          <div className="flex flex-wrap items-end justify-between gap-3">
+            <div>
+              <SubHeading>References</SubHeading>
+              <p className="mt-1 text-sm text-muted-foreground">
+                Numbered citations throughout this website correspond to the
+                list below.
+              </p>
+            </div>
+            <span className="rounded-full bg-muted px-3 py-1 text-xs font-semibold text-muted-foreground">
+              {references.length} sources
+            </span>
+          </div>
+          <ol className="divide-y divide-border border-y border-border">
             {references.map((ref) => (
               <li
                 key={ref.id}
                 id={`ref-${ref.id}`}
-                className="flex flex-wrap items-baseline gap-x-2 gap-y-1 border-b border-border pb-2.5 text-sm text-foreground/90 last:border-b-0"
+                className="scroll-mt-6 py-4 pl-10 text-sm leading-relaxed text-foreground/90 marker:font-semibold marker:text-secondary"
               >
-                <span className="font-medium text-muted-foreground">
-                  [{ref.id}]
-                </span>
-                <span>
-                  {ref.authors} {ref.title} <em>{ref.journal}</em>. {ref.year}
+                <span className="-ml-8">
+                  {ref.authors} {ref.title}. <em>{ref.journal}</em>. {ref.year}
                   {ref.volume ? `;${ref.volume}` : ''}
                   {ref.issue ? `(${ref.issue})` : ''}
                   {ref.pages ? `:${ref.pages}` : ''}.
                 </span>
-                <Badge variant="outline" className="text-[0.65rem]">
-                  {ref.type}
-                </Badge>
-                {ref.url ? (
-                  <a
-                    href={ref.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-xs font-medium text-secondary hover:underline"
-                  >
-                    View source
-                  </a>
-                ) : null}
-                {ref.doi ? <span className="text-xs text-muted-foreground">DOI: {ref.doi}</span> : null}
+                <span className="mt-2 flex flex-wrap items-center gap-2">
+                  <Badge variant="outline" className="text-[0.65rem]">
+                    {ref.type}
+                  </Badge>
+                  {ref.url ? (
+                    <a
+                      href={ref.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xs font-medium text-secondary hover:underline"
+                    >
+                      View source
+                    </a>
+                  ) : null}
+                </span>
               </li>
             ))}
           </ol>

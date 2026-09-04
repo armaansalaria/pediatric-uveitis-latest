@@ -14,7 +14,7 @@ export const careRoles: CareRole[] = [
     who: 'A primary eye-care professional.',
     does: 'Examines eyes and vision; refers on if inflammation is suspected.',
     when: 'May be an initial point of contact or involved in vision checks.',
-    citationIds: [27, 28],
+    citationIds: [27],
   },
   {
     id: 'ophthalmologist',
@@ -22,7 +22,7 @@ export const careRoles: CareRole[] = [
     who: 'A medical eye specialist.',
     does: 'Diagnoses and manages uveitis, including treatment and monitoring.',
     when: 'Once uveitis is suspected or confirmed, and for ongoing care.',
-    citationIds: [2, 7],
+    citationIds: [2, 7, 28],
   },
   {
     id: 'gp',
@@ -54,6 +54,7 @@ export const careRoles: CareRole[] = [
     who: 'A medication expert.',
     does: 'May be involved when medicines are started or changed.',
     when: 'As part of the broader care team when needed.',
+    citationIds: [7],
   },
   {
     id: 'orthoptist',
@@ -61,6 +62,7 @@ export const careRoles: CareRole[] = [
     who: 'A specialist in vision assessment.',
     does: 'May support vision assessment.',
     when: 'When included by the eye-care team.',
+    citationIds: [27],
   },
   {
     id: 'aboriginal-health',

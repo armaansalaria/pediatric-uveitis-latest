@@ -1,57 +1,41 @@
-import { ArrowDownIcon } from 'lucide-react'
-import type { ReactNode } from 'react'
+import { ArrowDownIcon, HeartPulseIcon, UserRoundIcon } from 'lucide-react'
 import { Cite } from '@/components/citation'
-
-function Node({
-  children,
-  emphasis = false,
-}: {
-  children: ReactNode
-  emphasis?: boolean
-}) {
-  return (
-    <div
-      className={
-        emphasis
-          ? 'rounded-lg border border-primary bg-primary px-4 py-2.5 text-center text-sm font-semibold text-primary-foreground'
-          : 'rounded-lg border border-border bg-card px-4 py-2.5 text-center text-sm font-medium text-foreground'
-      }
-    >
-      {children}
-    </div>
-  )
-}
-
-function Arrow({ label }: { label?: string }) {
-  return (
-    <div className="flex flex-col items-center gap-0.5 text-muted-foreground">
-      <ArrowDownIcon className="size-4" />
-      {label ? <span className="text-[0.7rem] italic">{label}</span> : null}
-    </div>
-  )
-}
 
 export function CarePathway() {
   return (
-    <div className="print-break-avoid rounded-xl border border-border bg-card p-4 sm:p-6">
-      <div className="mx-auto flex max-w-sm flex-col items-center gap-1">
-        <Node emphasis>Child + family</Node>
-        <Arrow label="initial eye care" />
-        <Node>Optometrist / other first contact<Cite ids={[27, 28]} /></Node>
-        <Arrow label="referral where needed" />
-        <Node emphasis>Ophthalmologist<Cite ids={[2, 7]} /></Node>
+    <figure className="print-break-avoid overflow-hidden rounded-xl border border-border bg-card p-4 sm:p-6">
+      <figcaption className="text-center text-base font-bold text-foreground">
+        The care team
+      </figcaption>
+      <div className="mt-5 flex flex-col items-center gap-2">
+        <div className="flex items-center gap-2 rounded-lg border border-primary bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground">
+          <UserRoundIcon className="size-4" />
+          Child + family
+        </div>
         <ArrowDownIcon className="size-4 text-muted-foreground" />
-        <div className="grid w-full gap-2 sm:grid-cols-3">
-          <Node>GP / Paediatrician<Cite ids={[7, 20]} /></Node>
-          <Node>Rheumatologist<Cite ids={[5, 7, 20]} /></Node>
-          <Node>Other support</Node>
+        <div className="grid w-full max-w-3xl items-center gap-3 sm:grid-cols-[1fr_auto_1fr]">
+          <div className="rounded-lg border border-sky-200 bg-sky-50 px-4 py-2.5 text-center text-sm font-semibold text-sky-800">
+            Optometrist<Cite ids={[27]} />
+          </div>
+          <div className="hidden text-muted-foreground sm:block">→</div>
+          <div className="rounded-lg border border-teal-200 bg-teal-50 px-4 py-2.5 text-center text-sm font-semibold text-teal-800">
+            <HeartPulseIcon className="mr-1 inline-block size-4" />
+            Ophthalmologist<Cite ids={[2, 7, 28]} />
+          </div>
+        </div>
+        <div className="h-4 border-l border-border" />
+        <div className="grid w-full max-w-3xl gap-2 sm:grid-cols-3">
+          <div className="rounded-md bg-muted px-3 py-2 text-center text-xs font-medium text-foreground">
+            GP / Paediatrician<Cite ids={[7, 20]} />
+          </div>
+          <div className="rounded-md bg-muted px-3 py-2 text-center text-xs font-medium text-foreground">
+            Rheumatologist<Cite ids={[5, 7, 20]} />
+          </div>
+          <div className="rounded-md bg-muted px-3 py-2 text-center text-xs font-medium text-foreground">
+            Other support
+          </div>
         </div>
       </div>
-      <p className="mt-4 text-center text-xs text-muted-foreground">
-        A flexible pathway, not a fixed sequence &mdash; professionals
-        communicate and collaborate, and not every child sees every
-        professional shown here.
-      </p>
-    </div>
+    </figure>
   )
 }

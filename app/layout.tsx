@@ -4,6 +4,7 @@ import { Public_Sans } from 'next/font/google'
 import './globals.css'
 import { SiteHeader } from '@/components/site-header'
 import { SiteFooter } from '@/components/site-footer'
+import { SiteDisclaimer } from '@/components/site-disclaimer'
 
 const publicSans = Public_Sans({
   subsets: ['latin'],
@@ -58,6 +59,7 @@ export default function RootLayout({
         <SiteHeader />
         <main id="main-content">{children}</main>
         <SiteFooter />
+        <SiteDisclaimer />
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>

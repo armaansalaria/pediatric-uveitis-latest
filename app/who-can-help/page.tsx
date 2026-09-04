@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { PageHeader, SubHeading } from '@/components/section-heading'
 import { Cite } from '@/components/citation'
+import { CarePathway } from '@/components/care-pathway'
 import { NextStepLink } from '@/components/next-step-link'
 
 export const metadata: Metadata = {
@@ -35,6 +36,7 @@ export default function WhoCanHelpPage() {
             associated condition such as JIA.
             <Cite ids={[2, 5, 7, 20, 27, 28]} />
           </p>
+          <CarePathway />
         </section>
 
         <section className="space-y-3">

@@ -11,7 +11,7 @@ export function CareTimeline() {
 
   return (
     <>
-    <ol className="flex flex-col gap-2 no-print">
+    <ol className="relative flex flex-col gap-2 no-print before:absolute before:top-5 before:bottom-5 before:left-[1.75rem] before:border-l before:border-primary/20">
       {careTimeline.map((item) => {
         const open = openStep === item.step
         return (
@@ -23,7 +23,7 @@ export function CareTimeline() {
               type="button"
               onClick={() => setOpenStep(open ? null : item.step)}
               aria-expanded={open}
-              className="flex w-full items-center gap-3 px-4 py-3 text-left"
+              className="relative z-10 flex w-full items-center gap-3 bg-card px-4 py-3 text-left"
             >
               <span className="flex size-7 shrink-0 items-center justify-center rounded-full bg-primary text-xs font-bold text-primary-foreground">
                 {item.step}

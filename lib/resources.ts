@@ -28,6 +28,6 @@ export const resourceCategories: ResourceCategory[] = [
     id: 'clinical-and-research',
     title: 'Clinical guidance and further reading',
     description: 'Guidelines, reviews and research for deeper reading or professional use.',
-    referenceIds: [3, 5, 7, 23, 35, 36, 40],
+    referenceIds: [3, 7, 23, 35],
   },
 ]

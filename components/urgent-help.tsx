@@ -68,7 +68,9 @@ export function UrgentHelp() {
               toneClasses[tier.tone]
             )}
           >
-            <tier.icon className="size-5" />
+            <span className="flex size-9 items-center justify-center rounded-md bg-current/10">
+              <tier.icon className="size-5" />
+            </span>
             <p className="mt-2 text-sm font-bold">{tier.label}</p>
             <p className="mt-1 text-sm opacity-90">{tier.description}</p>
             <ul className="mt-2 flex flex-col gap-1 text-sm opacity-90">
@@ -81,19 +83,6 @@ export function UrgentHelp() {
             </ul>
           </div>
         ))}
-      </div>
-      <div className="rounded-lg border border-border bg-muted/60 p-4 text-sm leading-relaxed text-foreground/90">
-        <p>
-          This is educational information, not a diagnostic tool. It cannot
-          tell you whether your child has uveitis or how urgent their
-          situation is.
-        </p>
-        <p className="mt-2 font-medium">
-          If you are worried about your child&apos;s vision or their symptoms
-          are rapidly worsening, contact an eye-care professional promptly.
-          Because eye symptoms can have different causes, seek professional
-          advice whenever you are unsure.
-        </p>
       </div>
     </div>
   )

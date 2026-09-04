@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { PageHeader, SubHeading } from '@/components/section-heading'
 import { Cite } from '@/components/citation'
-import { Badge } from '@/components/ui/badge'
 
 export const metadata: Metadata = {
   title: 'Acknowledgement of Country | Pediatric Uveitis',
@@ -20,21 +19,11 @@ export default function AcknowledgementPage() {
 
       <div className="mx-auto max-w-4xl space-y-10 px-4 py-10 sm:px-6">
         <section className="print-break-avoid space-y-3 rounded-xl border border-border bg-card p-5 sm:p-6">
-          <Badge variant="outline" className="no-print">
-            Editable before submission
-          </Badge>
           <p className="text-pretty text-lg leading-relaxed text-foreground/90">
-            We acknowledge the{' '}
-            <span className="rounded bg-accent px-1.5 py-0.5 font-semibold text-accent-foreground">
-              [Traditional Owner/s]
-            </span>{' '}
-            as the Traditional Owners of the land on which this care is
-            provided,{' '}
-            <span className="rounded bg-accent px-1.5 py-0.5 font-semibold text-accent-foreground">
-              [Practice location]
-            </span>
-            . We recognise their continuing connection to land, waters and
-            community, and pay our respects to Elders past and present.
+            We acknowledge the Wadawurrung people, the Traditional Custodians
+            of the land on which we stand. We pay our respects to their Elders,
+            past, present and emerging, and acknowledge their deep and ongoing
+            connection to Country, knowledge, and culture.
           </p>
         </section>
 

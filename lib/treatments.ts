@@ -47,7 +47,7 @@ export const treatments: Treatment[] = [
   },
   {
     id: 'associated-condition',
-    name: 'Treatment of an associated condition',
+    name: 'Treatment of an associated systemic condition',
     why: 'Relevant if uveitis occurs alongside a condition such as JIA.',
     what: 'Treating an associated inflammatory condition may also help control eye inflammation.',
     family: 'Coordinated between the eye team and treating specialist.',

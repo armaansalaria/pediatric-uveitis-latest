@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { PageHeader, SubHeading } from '@/components/section-heading'
 import { Cite } from '@/components/citation'
 import { CareTimeline } from '@/components/care-timeline'
+import { TreatmentCards } from '@/components/treatment-cards'
 import { UrgentHelp } from '@/components/urgent-help'
 import { NextStepLink } from '@/components/next-step-link'
 
@@ -44,18 +45,14 @@ export default function ManagementPage() {
         <section id="treatment" className="space-y-3">
           <SubHeading>Treatment</SubHeading>
           <p className="text-pretty leading-relaxed text-foreground/90">
-            Treatment aims to settle inflammation and protect vision.
-            <Cite ids={[5, 7, 10]} /> This is general information, not a
-            personalised plan. The clinician chooses treatment based on the
-            child&apos;s inflammation, response and associated conditions.
-            <Cite ids={[5, 7]} />
+            Treatment is tailored to each child and aims to control
+            inflammation and protect vision. The care team will explain which
+            options are relevant. This information does not include doses or
+            personalised instructions, so follow your own care team&apos;s
+            advice.
+            <Cite ids={[5, 7, 10]} />
           </p>
-          <p className="rounded-lg border border-border bg-card p-4 text-sm leading-relaxed text-muted-foreground">
-            Treatment may include anti-inflammatory drops, corticosteroids,
-            immune-modulating medicines, biologic therapy or management of
-            complications.
-            <Cite ids={[3, 5, 7, 10, 13, 23, 35]} />
-          </p>
+          <TreatmentCards />
         </section>
 
         <section id="self-care" className="space-y-3">

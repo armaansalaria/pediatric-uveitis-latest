@@ -3,7 +3,14 @@ import { PageHeader, SubHeading } from '@/components/section-heading'
 import { Cite } from '@/components/citation'
 import { EyeAnatomy } from '@/components/eye-anatomy'
 import { NextStepLink } from '@/components/next-step-link'
-import { AlertTriangleIcon } from 'lucide-react'
+import {
+  AlertTriangleIcon,
+  DropletIcon,
+  EyeIcon,
+  FrownIcon,
+  LightbulbIcon,
+  SparklesIcon,
+} from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'Disease/Condition Overview | Pediatric Uveitis',
@@ -83,25 +90,49 @@ export default function OverviewPage() {
         <section id="signs-and-symptoms" className="space-y-3">
           <SubHeading>Signs and symptoms</SubHeading>
           <p className="text-pretty leading-relaxed text-foreground/90">
-            Symptoms can include blurred or reduced vision, light sensitivity,
-            redness, pain, floaters or other visual disturbances.
-            <Cite ids={[1, 2]} /> The symptoms depend on the area of the eye
-            involved, so symptoms alone cannot establish the diagnosis.
-            <Cite ids={[1, 2, 12]} />
+            Signs can be subtle. Some children have clear symptoms, while
+            others, especially those with JIA-associated uveitis, may have few
+            or no obvious symptoms.
+            <Cite ids={[1, 2, 4, 6]} />
           </p>
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              [EyeIcon, 'Blurred or reduced vision', 'Vision may be less clear or reduced at an eye test.'],
+              [LightbulbIcon, 'Light sensitivity', 'Bright light may cause discomfort.'],
+              [DropletIcon, 'Eye redness', 'The eye may look pink or red.'],
+              [FrownIcon, 'Eye discomfort or pain', 'Some children may have discomfort or pain.'],
+              [SparklesIcon, 'Floaters or visual changes', 'Small spots, dots or other visual disturbances may occur.'],
+            ].map(([Icon, title, detail]) => (
+              <div key={title as string} className="rounded-xl border border-border bg-card p-5 shadow-sm">
+                <span className="flex size-10 items-center justify-center rounded-full bg-secondary/15 text-secondary">
+                  <Icon className="size-5" />
+                </span>
+                <h3 className="mt-4 text-base font-bold text-primary">{title as string}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  {detail as string}<Cite ids={[2, 12]} />
+                </p>
+              </div>
+            ))}
+          </div>
         </section>
 
         <section id="subtle-symptoms" className="space-y-3">
           <SubHeading>When symptoms may be subtle</SubHeading>
           <p className="text-pretty leading-relaxed text-foreground/90">
             Some children, especially those with JIA-associated anterior
-            uveitis, have few or no symptoms. Scheduled eye checks therefore
-            remain important.
-            <Cite ids={[4, 6, 18]} /> This is particularly important in
-            JIA-associated disease because eye inflammation may be found
-            through screening rather than through a child reporting symptoms.
-            <Cite ids={[4, 7]} />
+            uveitis, may have few or no obvious symptoms. Scheduled eye checks
+            therefore remain important.
+            <Cite ids={[4, 6, 7, 18]} />
           </p>
+          <div className="flex gap-3 rounded-xl border-l-4 border-tier-prompt bg-tier-prompt/30 p-5">
+            <AlertTriangleIcon className="mt-0.5 size-5 shrink-0 text-tier-prompt-foreground" />
+            <p className="text-sm leading-relaxed text-tier-prompt-foreground">
+              Symptoms alone cannot establish the diagnosis. An eye
+              examination is needed, including for children who have few
+              symptoms.
+              <Cite ids={[2, 4, 7, 12]} />
+            </p>
+          </div>
         </section>
 
         <section id="complications" className="space-y-3">

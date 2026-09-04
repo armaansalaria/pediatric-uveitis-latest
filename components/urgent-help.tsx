@@ -1,6 +1,7 @@
 import { AlertTriangleIcon, ClockIcon, CalendarCheckIcon } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import { Cite } from '@/components/citation'
 
 type Tier = {
   id: string
@@ -9,6 +10,8 @@ type Tier = {
   tone: 'urgent' | 'prompt' | 'routine'
   description: string
   examples: string[]
+  citationIds: number[]
+  emergency?: string
 }
 
 const tiers: Tier[] = [
@@ -18,6 +21,9 @@ const tiers: Tier[] = [
     icon: AlertTriangleIcon,
     tone: 'urgent',
     description: 'Contact an eye-care professional promptly.',
+    citationIds: [2, 7],
+    emergency:
+      'In Australia, call 000 for an emergency or attend the nearest hospital emergency department. Healthdirect is available on 1800 022 222 for health advice.',
     examples: [
       'Sudden or significant reduction in vision',
       'Severe eye pain',
@@ -30,6 +36,7 @@ const tiers: Tier[] = [
     icon: ClockIcon,
     tone: 'prompt',
     description: 'Contact the eye-care team promptly for advice.',
+    citationIds: [2, 7],
     examples: [
       'New light sensitivity or redness',
       'New floaters or visual disturbance',
@@ -42,6 +49,7 @@ const tiers: Tier[] = [
     icon: CalendarCheckIcon,
     tone: 'routine',
     description: 'Follow the review plan agreed with the care team.',
+    citationIds: [4, 7],
     examples: [
       'No new symptoms',
       'Stable vision',
@@ -59,28 +67,38 @@ const toneClasses: Record<Tier['tone'], string> = {
 export function UrgentHelp() {
   return (
     <div className="print-break-avoid space-y-4">
-      <div className="grid gap-3 sm:grid-cols-3">
+      <div className="space-y-4">
         {tiers.map((tier) => (
           <div
             key={tier.id}
             className={cn(
-              'rounded-lg border p-4',
+              'rounded-xl border-2 p-5 sm:p-6',
               toneClasses[tier.tone]
             )}
           >
-            <span className="flex size-9 items-center justify-center rounded-md bg-current/10">
-              <tier.icon className="size-5" />
-            </span>
-            <p className="mt-2 text-sm font-bold">{tier.label}</p>
-            <p className="mt-1 text-sm opacity-90">{tier.description}</p>
-            <ul className="mt-2 flex flex-col gap-1 text-sm opacity-90">
-              {tier.examples.map((ex) => (
-                <li key={ex} className="flex gap-1.5">
-                  <span aria-hidden="true">•</span>
-                  <span>{ex}</span>
-                </li>
-              ))}
-            </ul>
+            <div className="flex items-start gap-3">
+              <span className="flex size-9 shrink-0 items-center justify-center rounded-md bg-current/10">
+                <tier.icon className="size-5" />
+              </span>
+              <div className="min-w-0">
+                <p className="text-lg font-bold">{tier.label}</p>
+                <p className="mt-2 text-sm leading-relaxed opacity-90">
+                  {tier.description}{' '}
+                  {tier.examples.map((example, index) => (
+                    <span key={example}>
+                      <strong>{example}</strong>
+                      {index < tier.examples.length - 1 ? ', ' : '.'}
+                    </span>
+                  ))}
+                  <Cite ids={tier.citationIds} />
+                </p>
+                {tier.emergency ? (
+                  <p className="mt-3 border-t border-current/15 pt-3 text-sm leading-relaxed opacity-90">
+                    {tier.emergency} <Cite ids={[37]} />
+                  </p>
+                ) : null}
+              </div>
+            </div>
           </div>
         ))}
       </div>

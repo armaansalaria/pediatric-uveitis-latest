@@ -17,7 +17,7 @@ const tiers: Tier[] = [
     label: 'Urgent professional assessment',
     icon: AlertTriangleIcon,
     tone: 'urgent',
-    description: 'Seek assessment the same day.',
+    description: 'Contact an eye-care professional promptly.',
     examples: [
       'Sudden or significant reduction in vision',
       'Severe eye pain',
@@ -29,7 +29,7 @@ const tiers: Tier[] = [
     label: 'Prompt eye-care review',
     icon: ClockIcon,
     tone: 'prompt',
-    description: 'Arrange review within a few days.',
+    description: 'Contact the eye-care team promptly for advice.',
     examples: [
       'New light sensitivity or redness',
       'New floaters or visual disturbance',
@@ -41,7 +41,7 @@ const tiers: Tier[] = [
     label: 'Routine follow-up',
     icon: CalendarCheckIcon,
     tone: 'routine',
-    description: 'Continue with the planned review schedule.',
+    description: 'Follow the review plan agreed with the care team.',
     examples: [
       'No new symptoms',
       'Stable vision',
@@ -89,10 +89,10 @@ export function UrgentHelp() {
           situation is.
         </p>
         <p className="mt-2 font-medium">
-          If you are worried about your child&apos;s vision, or their
-          symptoms are rapidly worsening, seek urgent professional
-          assessment. Because eye symptoms can have different causes, seek
-          professional advice whenever you are unsure.
+          If you are worried about your child&apos;s vision or their symptoms
+          are rapidly worsening, contact an eye-care professional promptly.
+          Because eye symptoms can have different causes, seek professional
+          advice whenever you are unsure.
         </p>
       </div>
     </div>

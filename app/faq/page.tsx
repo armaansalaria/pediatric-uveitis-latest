@@ -9,6 +9,7 @@ import {
   AccordionContent,
 } from '@/components/ui/accordion'
 import { NextStepLink } from '@/components/next-step-link'
+import { Cite } from '@/components/citation'
 
 export const metadata: Metadata = {
   title: 'FAQ | Pediatric Uveitis',
@@ -32,7 +33,7 @@ export default function FaqPage() {
                 {item.question}
               </AccordionTrigger>
               <AccordionContent>
-                <p className="text-muted-foreground">{item.answer}</p>
+                <p className="text-muted-foreground">{item.answer}{item.citationIds ? <Cite ids={item.citationIds} /> : null}</p>
               </AccordionContent>
             </AccordionItem>
           ))}

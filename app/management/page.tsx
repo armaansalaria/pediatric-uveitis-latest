@@ -2,9 +2,7 @@ import type { Metadata } from 'next'
 import { PageHeader, SubHeading } from '@/components/section-heading'
 import { Cite } from '@/components/citation'
 import { CareTimeline } from '@/components/care-timeline'
-import { TreatmentCards } from '@/components/treatment-cards'
 import { UrgentHelp } from '@/components/urgent-help'
-import { AppointmentChecklist } from '@/components/appointment-checklist'
 import { NextStepLink } from '@/components/next-step-link'
 
 export const metadata: Metadata = {
@@ -14,13 +12,9 @@ export const metadata: Metadata = {
 }
 
 const selfCareItems = [
-  'Keep to the agreed treatment routine, even when the eye feels normal.',
-  'Attend follow-up appointments \u2014 they are how quiet inflammation gets caught.',
-  'Let teachers know if light sensitivity or appointments may affect school.',
-  'Mention any changes you notice between visits, even small ones.',
-  'Support your child emotionally \u2014 drops and check-ups can feel like a lot.',
-  'As teenagers get older, help them gradually take on more of their own care.',
-  'Write down questions before appointments so nothing gets forgotten.',
+  'Follow the agreed treatment routine.',
+  'Attend appointments and report changes between visits.',
+  'Ask the care team about school, daily activities and involving your teenager in their own care.',
 ]
 
 export default function ManagementPage() {
@@ -29,7 +23,7 @@ export default function ManagementPage() {
       <PageHeader
         eyebrow="Management"
         title="Managing pediatric uveitis"
-        intro="What to expect, how treatment works, and what to watch for at home."
+        intro={<>What to expect, how treatment is selected, and how monitoring is used.<Cite ids={[5, 7]} /></>}
       />
 
       <div className="mx-auto max-w-4xl space-y-12 px-4 py-10 sm:px-6">
@@ -51,17 +45,16 @@ export default function ManagementPage() {
           <SubHeading>Treatment</SubHeading>
           <p className="text-pretty leading-relaxed text-foreground/90">
             Treatment aims to settle inflammation and protect vision.
-            <Cite ids={[4, 5, 6]} /> Select a category below for an outline.
-            This is general information, not a personalised plan &mdash; your
-            child&apos;s clinician will recommend what suits their
-            situation, including doses and timing.
+            <Cite ids={[5, 7, 10]} /> This is general information, not a
+            personalised plan. The clinician chooses treatment based on the
+            child&apos;s inflammation, response and associated conditions.
+            <Cite ids={[5, 7]} />
           </p>
-          <TreatmentCards />
-          <p className="text-sm text-muted-foreground">
-            Biologic therapy such as adalimumab has trial evidence supporting
-            its use in children whose JIA-associated uveitis has not
-            responded to standard treatment.
-            <Cite ids={[7, 8]} />
+          <p className="rounded-lg border border-border bg-card p-4 text-sm leading-relaxed text-muted-foreground">
+            Treatment may include anti-inflammatory drops, corticosteroids,
+            immune-modulating medicines, biologic therapy or management of
+            complications.
+            <Cite ids={[3, 5, 7, 10, 13, 23, 35]} />
           </p>
         </section>
 
@@ -87,24 +80,20 @@ export default function ManagementPage() {
           <p className="text-pretty leading-relaxed text-foreground/90">
             Regular monitoring matters because inflammation can be present
             without symptoms.
-            <Cite ids={[4, 6]} /> Reviews may check vision, eye inflammation,
+            <Cite ids={[4, 7]} /> Reviews may check vision, eye inflammation,
             eye pressure, and retinal or macular changes, alongside any
             effects of treatment.
-            <Cite ids={[4, 6, 11]} /> There is no single schedule for every
+            <Cite ids={[4, 5, 7]} /> There is no single schedule for every
             child &mdash; follow-up frequency depends on the type of
             uveitis, treatment and how your child&apos;s eyes are
             responding.
-            <Cite ids={[4, 6]} />
+            <Cite ids={[5, 7]} />
           </p>
         </section>
 
         <section id="urgent-help" className="space-y-3">
           <SubHeading>When should I get urgent help?</SubHeading>
           <UrgentHelp />
-        </section>
-
-        <section id="checklist" className="space-y-3">
-          <AppointmentChecklist />
         </section>
 
         <NextStepLink href="/who-can-help">

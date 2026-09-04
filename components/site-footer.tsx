@@ -31,37 +31,11 @@ export function SiteFooter() {
           </div>
           <div className="sm:col-span-2 lg:col-span-2">
             <p className="text-xs font-semibold tracking-wide text-secondary uppercase">
-              About this information
+              Disclaimer
             </p>
-            <dl className="mt-3 flex flex-col gap-3 text-sm text-primary-foreground/80">
-              <div>
-                <dt className="font-medium text-primary-foreground">Purpose</dt>
-                <dd>Patient and family education, not diagnosis or treatment.</dd>
-              </div>
-              <div>
-                <dt className="font-medium text-primary-foreground">Intended audience</dt>
-                <dd>
-                  Children, young people, parents, carers and families in
-                  Australia.
-                </dd>
-              </div>
-              <div>
-                <dt className="font-medium text-primary-foreground">Evidence approach</dt>
-                <dd>Based on clinical guidelines and peer-reviewed literature; see Resources.</dd>
-              </div>
-              <div>
-                <dt className="font-medium text-primary-foreground">Disclaimer</dt>
-                <dd>
-                  This website provides general educational information. It
-                  does not replace professional assessment, diagnosis or
-                  treatment.
-                </dd>
-              </div>
-              <div>
-                <dt className="font-medium text-primary-foreground">Last reviewed</dt>
-                <dd>[Date to be added]</dd>
-              </div>
-            </dl>
+            <p className="mt-3 text-sm text-primary-foreground/80">
+              This site is for general education only and does not replace professional medical advice. If you have immediate concerns about your child&apos;s eyes, please contact their care team or seek urgent care. We deeply respect First Nations cultures and traditional health practices, aiming to share information without imposing Western medical views.
+            </p>
           </div>
         </div>
       </div>

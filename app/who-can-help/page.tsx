@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import { PageHeader, SubHeading } from '@/components/section-heading'
-import { careRoles } from '@/lib/care-roles'
-import { CarePathway } from '@/components/care-pathway'
+import { Cite } from '@/components/citation'
 import { NextStepLink } from '@/components/next-step-link'
 
 export const metadata: Metadata = {
@@ -27,48 +26,24 @@ export default function WhoCanHelpPage() {
             flexible pathway that can start in different places depending on
             how symptoms are first noticed, and professionals communicate
             with each other along the way.
+            <Cite ids={[5, 7, 20, 27, 28]} />
           </p>
-          <CarePathway />
+          <p className="text-sm leading-relaxed text-muted-foreground">
+            An optometrist may be an initial point of contact. An
+            ophthalmologist assesses and manages uveitis. A GP or paediatrician
+            may help coordinate care, and a rheumatologist may manage an
+            associated condition such as JIA.
+            <Cite ids={[2, 5, 7, 20, 27, 28]} />
+          </p>
         </section>
 
         <section className="space-y-3">
           <SubHeading>The care team</SubHeading>
-          <div className="grid gap-3 sm:grid-cols-2">
-            {careRoles.map((role) => (
-              <div
-                key={role.id}
-                className="rounded-lg border border-border bg-card p-4"
-              >
-                <p className="text-sm font-bold text-primary">{role.name}</p>
-                <dl className="mt-2 flex flex-col gap-1.5 text-sm">
-                  <div>
-                    <dt className="inline font-medium text-foreground">
-                      Who they are:{' '}
-                    </dt>
-                    <dd className="inline text-muted-foreground">
-                      {role.who}
-                    </dd>
-                  </div>
-                  <div>
-                    <dt className="inline font-medium text-foreground">
-                      What they may do:{' '}
-                    </dt>
-                    <dd className="inline text-muted-foreground">
-                      {role.does}
-                    </dd>
-                  </div>
-                  <div>
-                    <dt className="inline font-medium text-foreground">
-                      When involved:{' '}
-                    </dt>
-                    <dd className="inline text-muted-foreground">
-                      {role.when}
-                    </dd>
-                  </div>
-                </dl>
-              </div>
-            ))}
-          </div>
+          <p className="text-sm leading-relaxed text-muted-foreground">
+            The professionals involved depend on the child&apos;s condition,
+            treatment and response. Not every child needs every professional.
+            <Cite ids={[5, 7, 20]} />
+          </p>
         </section>
 
         <NextStepLink href="/resources">

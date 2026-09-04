@@ -1,10 +1,12 @@
 import { ArrowDownIcon } from 'lucide-react'
+import type { ReactNode } from 'react'
+import { Cite } from '@/components/citation'
 
 function Node({
   children,
   emphasis = false,
 }: {
-  children: string
+  children: ReactNode
   emphasis?: boolean
 }) {
   return (
@@ -35,13 +37,13 @@ export function CarePathway() {
       <div className="mx-auto flex max-w-sm flex-col items-center gap-1">
         <Node emphasis>Child + family</Node>
         <Arrow label="initial eye care" />
-        <Node>Optometrist / other first contact</Node>
+        <Node>Optometrist / other first contact<Cite ids={[27, 28]} /></Node>
         <Arrow label="referral where needed" />
-        <Node emphasis>Ophthalmologist</Node>
+        <Node emphasis>Ophthalmologist<Cite ids={[2, 7]} /></Node>
         <ArrowDownIcon className="size-4 text-muted-foreground" />
         <div className="grid w-full gap-2 sm:grid-cols-3">
-          <Node>GP / Paediatrician</Node>
-          <Node>Rheumatologist</Node>
+          <Node>GP / Paediatrician<Cite ids={[7, 20]} /></Node>
+          <Node>Rheumatologist<Cite ids={[5, 7, 20]} /></Node>
           <Node>Other support</Node>
         </div>
       </div>

@@ -17,7 +17,7 @@ export default function OverviewPage() {
       <PageHeader
         eyebrow="Disease/Condition Overview"
         title="Understanding pediatric uveitis"
-        intro="What uveitis is, why it's taken seriously, and what it can mean for your child's eyes."
+        intro={<>What uveitis is, why it is taken seriously, and what it can mean for your child&apos;s eyes.<Cite ids={[1, 7, 13]} /></>}
       />
 
       <div className="mx-auto max-w-4xl space-y-12 px-4 py-10 sm:px-6">
@@ -31,6 +31,10 @@ export default function OverviewPage() {
             <Cite ids={[1, 2]} /> Doctors group uveitis by which part of the
             eye is affected: anterior, intermediate, posterior, or panuveitis
             when all layers are involved.
+            <Cite ids={[1]} /> This classification gives the care team a
+            consistent way to describe the location and activity of
+            inflammation during assessment and follow-up.
+            <Cite ids={[1, 16]} />
             <Cite ids={[1]} />
           </p>
 
@@ -43,7 +47,7 @@ export default function OverviewPage() {
               <p className="mt-1 text-sm leading-relaxed text-tier-prompt-foreground/90">
                 Untreated or poorly controlled inflammation can damage
                 structures inside the eye over time and affect vision.
-                <Cite ids={[4, 6]} /> This is why children with uveitis are
+                <Cite ids={[7, 13, 17]} /> This is why children with uveitis are
                 monitored closely, even when their eyes look and feel normal.
               </p>
             </div>
@@ -53,9 +57,10 @@ export default function OverviewPage() {
         <section id="eye-anatomy" className="space-y-3">
           <SubHeading>What part of the eye is involved?</SubHeading>
           <p className="text-pretty leading-relaxed text-foreground/90">
-            The uvea is the eye&apos;s middle layer. Select a structure in
-            the diagram below to see where it sits and how it relates to
-            uveitis — not every type of uveitis affects every structure.
+            The uvea is the eye&apos;s middle layer: the iris, ciliary body and
+            choroid. The interactive diagram shows these structures and the
+            nearby parts of the eye described in uveitis classifications.
+            <Cite ids={[1, 2]} />
           </p>
           <EyeAnatomy />
         </section>
@@ -63,76 +68,64 @@ export default function OverviewPage() {
         <section id="causes" className="space-y-3">
           <SubHeading>Causes and associations</SubHeading>
           <p className="text-pretty leading-relaxed text-foreground/90">
-            The cause of uveitis varies between children.
-            <Cite ids={[1, 3]} /> Some cases are idiopathic, meaning no clear
-            cause is found. Others relate to the immune system reacting
-            against the body&apos;s own tissues, a systemic inflammatory
-            condition, or — less commonly — infection.
-            <Cite ids={[1, 2]} /> Juvenile idiopathic arthritis (JIA) is the
-            condition most often linked with childhood uveitis, though most
-            children with JIA never develop eye inflammation, and not every
-            child with uveitis has JIA.
-            <Cite ids={[4, 10]} /> Because of this link, children with JIA
-            usually have regular eye checks even when their eyes seem fine.
-            <Cite ids={[4]} />
+            Causes vary. Some cases have no clear cause; others are linked
+            with immune conditions, including juvenile idiopathic arthritis
+            (JIA), or less commonly infection.
+            <Cite ids={[2, 6, 20]} /> Children with JIA may need regular eye
+            checks, even when their eyes seem fine.
+            <Cite ids={[4, 7]} /> Risk factors described in childhood uveitis
+            studies include the child&apos;s age, the pattern of eye
+            inflammation and features of any associated condition.
+            <Cite ids={[6, 8, 18, 19]} />
           </p>
         </section>
 
         <section id="signs-and-symptoms" className="space-y-3">
           <SubHeading>Signs and symptoms</SubHeading>
           <p className="text-pretty leading-relaxed text-foreground/90">
-            Symptoms depend on which part of the eye is affected and can
-            include blurred or reduced vision, sensitivity to light, redness,
-            eye pain or discomfort, and floaters or other visual
-            disturbances.
-            <Cite ids={[1, 2]} /> Some children describe their vision as
-            hazy or &quot;not quite right&quot; rather than clearly worse.
+            Symptoms can include blurred or reduced vision, light sensitivity,
+            redness, pain, floaters or other visual disturbances.
+            <Cite ids={[1, 2]} /> The symptoms depend on the area of the eye
+            involved, so symptoms alone cannot establish the diagnosis.
+            <Cite ids={[1, 2, 12]} />
           </p>
         </section>
 
         <section id="subtle-symptoms" className="space-y-3">
           <SubHeading>When symptoms may be subtle</SubHeading>
           <p className="text-pretty leading-relaxed text-foreground/90">
-            Chronic anterior uveitis linked with JIA often causes few or no
-            obvious symptoms, especially in young children.
-            <Cite ids={[4, 9, 10]} /> A child can have significant
-            inflammation inside the eye while looking and behaving
-            completely normally.{' '}
-            <strong>
-              The absence of symptoms does not mean the absence of
-              inflammation.
-            </strong>{' '}
-            This is why scheduled eye checks matter as much as checks
-            prompted by symptoms.
-            <Cite ids={[4]} />
+            Some children, especially those with JIA-associated anterior
+            uveitis, have few or no symptoms. Scheduled eye checks therefore
+            remain important.
+            <Cite ids={[4, 6, 18]} /> This is particularly important in
+            JIA-associated disease because eye inflammation may be found
+            through screening rather than through a child reporting symptoms.
+            <Cite ids={[4, 7]} />
           </p>
         </section>
 
         <section id="complications" className="space-y-3">
           <SubHeading>Possible complications</SubHeading>
           <p className="text-pretty leading-relaxed text-foreground/90">
-            If inflammation continues without treatment, possible
-            complications include cataract, glaucoma (raised eye pressure),
-            band keratopathy and macular oedema, and, less commonly, vision
-            loss.
-            <Cite ids={[4, 9, 11]} /> Regular monitoring aims to detect these
-            early, when they are easier to manage.
-            <Cite ids={[6, 11]} />
+            Ongoing inflammation can cause complications such as cataract,
+            glaucoma and macular oedema. Monitoring aims to identify
+            complications and protect vision.
+            <Cite ids={[5, 7, 13, 17]} /> Complications and visual outcomes
+            are among the reasons treatment and regular eye examinations are
+            used together.
+            <Cite ids={[7, 13, 17]} />
           </p>
         </section>
 
         <section id="prognosis" className="space-y-3">
           <SubHeading>Prognosis / what to expect</SubHeading>
           <p className="text-pretty leading-relaxed text-foreground/90">
-            With appropriate treatment and follow-up, many children with
-            uveitis maintain good vision.
-            <Cite ids={[9, 11]} /> The course varies: some children have a
-            single episode, while others have inflammation that comes and
-            goes over months or years.
-            <Cite ids={[9]} /> Follow-up frequency depends on the child&apos;s
-            condition, treatment and response, rather than a fixed schedule.
-            <Cite ids={[4, 6]} /> Your child&apos;s eye care team can explain
-            what to expect for their specific situation.
+            Treatment and follow-up can help protect vision, but outcomes and
+            the course of disease vary between children.
+            <Cite ids={[7, 8, 13, 17]} /> Prognosis is influenced by the type
+            of uveitis, the associated condition when present, complications
+            and response to treatment.
+            <Cite ids={[8, 13, 17, 20]} />
           </p>
         </section>
 

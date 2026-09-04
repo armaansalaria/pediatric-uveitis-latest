@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { ChevronDownIcon } from 'lucide-react'
 import { careTimeline } from '@/lib/care-timeline'
 import { cn } from '@/lib/utils'
+import { Cite } from '@/components/citation'
 
 export function CareTimeline() {
   const [openStep, setOpenStep] = useState<number | null>(1)
@@ -39,7 +40,7 @@ export function CareTimeline() {
             </button>
             {open ? (
               <p className="px-4 pb-4 pl-14 text-sm leading-relaxed text-muted-foreground">
-                {item.detail}
+                {item.detail}<Cite ids={item.citationIds} />
               </p>
             ) : null}
           </li>
@@ -52,7 +53,7 @@ export function CareTimeline() {
           <strong>
             {item.step}. {item.title}:
           </strong>{' '}
-          {item.detail}
+          {item.detail}<Cite ids={item.citationIds} />
         </li>
       ))}
     </ol>

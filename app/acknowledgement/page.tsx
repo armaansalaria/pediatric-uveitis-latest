@@ -46,12 +46,12 @@ export default function AcknowledgementPage() {
             circumstances, previous healthcare experiences, access to
             specialist care, and cultural perspectives can all affect how a
             family experiences care.
-            <Cite ids={[12]} /> Aboriginal and Torres Strait Islander
+            <Cite ids={[26, 29]} /> Aboriginal and Torres Strait Islander
             families may benefit from services that recognise these factors
             and connect them with culturally appropriate support, such as
             Aboriginal Health Workers or Aboriginal community-controlled
             health services.
-            <Cite ids={[12]} />
+            <Cite ids={[26, 29]} />
           </p>
           <p className="text-pretty leading-relaxed text-foreground/90">
             See{' '}

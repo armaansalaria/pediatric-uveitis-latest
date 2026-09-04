@@ -4,6 +4,7 @@ export type CareRole = {
   who: string
   does: string
   when: string
+  citationIds?: number[]
 }
 
 export const careRoles: CareRole[] = [
@@ -12,7 +13,8 @@ export const careRoles: CareRole[] = [
     name: 'Optometrist',
     who: 'A primary eye-care professional.',
     does: 'Examines eyes and vision; refers on if inflammation is suspected.',
-    when: 'Often the first contact, or for ongoing vision checks.',
+    when: 'May be an initial point of contact or involved in vision checks.',
+    citationIds: [27, 28],
   },
   {
     id: 'ophthalmologist',
@@ -20,6 +22,7 @@ export const careRoles: CareRole[] = [
     who: 'A medical eye specialist.',
     does: 'Diagnoses and manages uveitis, including treatment and monitoring.',
     when: 'Once uveitis is suspected or confirmed, and for ongoing care.',
+    citationIds: [2, 7],
   },
   {
     id: 'gp',
@@ -27,6 +30,7 @@ export const careRoles: CareRole[] = [
     who: 'Your family\u2019s general practitioner.',
     does: 'Coordinates overall care and helps arrange referrals.',
     when: 'A useful first contact and ongoing coordinator.',
+    citationIds: [7, 20],
   },
   {
     id: 'paediatrician',
@@ -34,6 +38,7 @@ export const careRoles: CareRole[] = [
     who: 'A doctor specialising in children\u2019s health.',
     does: 'Supports overall wellbeing and coordinates care for associated conditions.',
     when: 'If a broader health assessment is useful.',
+    citationIds: [7, 20],
   },
   {
     id: 'rheumatologist',
@@ -41,20 +46,21 @@ export const careRoles: CareRole[] = [
     who: 'A specialist in joint and immune conditions.',
     does: 'Manages conditions such as JIA that can be linked with uveitis.',
     when: 'When an associated systemic condition is suspected or confirmed.',
+    citationIds: [5, 7, 20],
   },
   {
     id: 'pharmacist',
     name: 'Pharmacist',
     who: 'A medication expert.',
-    does: 'Explains how and when to use medications and watches for interactions.',
-    when: 'Whenever medications are started or changed.',
+    does: 'May be involved when medicines are started or changed.',
+    when: 'As part of the broader care team when needed.',
   },
   {
     id: 'orthoptist',
     name: 'Orthoptist',
     who: 'A specialist in vision assessment.',
-    does: 'Supports vision testing, especially for younger children.',
-    when: 'Often alongside the ophthalmology team.',
+    does: 'May support vision assessment.',
+    when: 'When included by the eye-care team.',
   },
   {
     id: 'aboriginal-health',
@@ -62,6 +68,7 @@ export const careRoles: CareRole[] = [
     who: 'Culturally safe health support connected to community.',
     does: 'Helps families navigate care and access services.',
     when: 'At any point; especially valuable for coordinating care.',
+    citationIds: [26, 29],
   },
   {
     id: 'other-support',
